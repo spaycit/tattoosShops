@@ -142,7 +142,6 @@ tattoosList = {
 		{nameHash = "FM_Hip_M_Tat_047", addedX = 0.4, addedY=0.2,addedZ=0.5,rotZ = 104.6, price = 500},
 		{nameHash = "FM_Hip_M_Tat_048", addedX = -0.1, addedY=0.6,addedZ=-0.1,rotZ = 181.1, price = 500},
 	},
-}
 
 
 	["mpbiker_overlays"] = { --need to check the possitions
@@ -208,7 +207,6 @@ tattoosList = {
 		{nameHash = "MP_MP_Biker_Tat_059_M", addedX = -0.3, addedY=-0.2,addedZ=0.5,rotZ = 290.7, price = 500},
 		{nameHash = "MP_MP_Biker_Tat_060_M", addedX = -0.3, addedY=-0.2,addedZ=0.5,rotZ = 290.7, price = 500},
 	},
-}
 
 
 ["mpairraces_overlays"] = { --need to check the possitions
@@ -221,7 +219,6 @@ tattoosList = {
 		{nameHash = "MP_Airraces_Tattoo_006_M", addedX = 0.5, addedY=-0.3,addedZ=0.2,rotZ = 38.9, price = 500},
 		{nameHash = "MP_Airraces_Tattoo_007_M", addedX = -0.1, addedY=0.8,addedZ=-0.2,rotZ = 156.7, price = 500},
 	},
-}
 
 ["mpbeach_overlays"] = { --need to check the possitions
 		{nameHash = "MP_Bea_M_Back_000", addedX = -0.7, addedY=-0.4,addedZ=0.5,rotZ = -55.6, price = 500},
@@ -242,7 +239,6 @@ tattoosList = {
                 {nameHash = "MP_Bea_M_Stom_000", addedX = 0.4, addedY=0.5,addedZ=0.4,rotZ = 129.5, price = 500},
 		{nameHash = "MP_Bea_M_Stom_001", addedX = -0.8, addedY=0.1,addedZ=0.0,rotZ = -71.9, price = 500},
 	},
-}
 
 ["mpchristmas2_overlays"] = { --need to check the possitions
 		{nameHash = "MP_Xmas2_M_Tat_000", addedX = -0.7, addedY=-0.4,addedZ=0.5,rotZ = -55.6, price = 500},
@@ -276,7 +272,6 @@ tattoosList = {
 		{nameHash = "MP_Xmas2_M_Tat_028", addedX = -1.1, addedY=0.2,addedZ=0.2,rotZ = -431.1, price = 500},
 		{nameHash = "MP_Xmas2_M_Tat_029", addedX = 0.2, addedY=0.5,addedZ=0.0,rotZ = -200.1, price = 500},
 	},
-}
 
 
 ["mpgunrunning_overlays"] = { --need to check the possitions
@@ -312,7 +307,6 @@ tattoosList = {
 		{nameHash = "MP_Gunrunning_Tattoo_029_M", addedX = 0.2, addedY=0.5,addedZ=0.0,rotZ = -200.1, price = 500},
 		{nameHash = "MP_Gunrunning_Tattoo_030_M", addedX = -0.7, addedY=-0.5,addedZ=0.3,rotZ = -63.5, price = 500},
 	},
-}
 
 ["mpimportexport_overlays"] = { --need to check the possitions
 		{nameHash = "MP_MP_ImportExport_Tat_000_M", addedX = -0.7, addedY=-0.4,addedZ=0.5,rotZ = -55.6, price = 500},
@@ -328,7 +322,6 @@ tattoosList = {
 		{nameHash = "MP_MP_ImportExport_Tat_010_M", addedX = 0.5, addedY=-0.4,addedZ=-0.1,rotZ = 37.8, price = 500},
 		{nameHash = "MP_MP_ImportExport_Tat_011_M", addedX = -0.3, addedY=-0.2,addedZ=0.5,rotZ = 290.7, price = 500},
 	},
-}
 
 ["mplowrider2_overlays"] = { --need to check the possitions
 		{nameHash = "MP_LR_Tat_000_M", addedX = -0.7, addedY=-0.4,addedZ=0.5,rotZ = -55.6, price = 500},
@@ -368,7 +361,6 @@ tattoosList = {
 		{nameHash = "MP_LR_Tat_034_M", addedX = -0.1, addedY=0.7,addedZ=0.0,rotZ = 191.5, price = 500},
 		{nameHash = "MP_LR_Tat_035_M", addedX = 0.1, addedY=0.7,addedZ=0.0,rotZ = 145.6, price = 500},
 	},
-}
 
 ["mplowrider_overlays"] = { --need to check the possitions
 		{nameHash = "MP_LR_Tat_001_M", addedX = -0.4, addedY=-0.7,addedZ=0.2,rotZ = -49.7, price = 500},
