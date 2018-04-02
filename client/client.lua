@@ -85,9 +85,9 @@ function openMenu()
 			table.insert(elements, {label = _U('go_back_to_menu'), value = nil})
 			for i,k in pairs(tattoosList[data.current.value]) do
 				table.insert(elements, {label= _U('tattoo') .. " n°"..i.." - " .. _U('money_amount', k.price), value = i, price = k.price})
-      		end
+			end
 
-      		ESX.UI.Menu.Open(
+			ESX.UI.Menu.Open(
 				'default', GetCurrentResourceName(), 'Tattoos_Categories_menu',
 				{
 					title    = _U('tattoos') .. ' | '..currentLabel,
@@ -107,8 +107,8 @@ function openMenu()
 
 			end,
 			function(data2, menu2)
-			    menu2.close()
-			    RenderScriptCams(false, false, 0, 1, 0)
+				menu2.close()
+				RenderScriptCams(false, false, 0, 1, 0)
 				DestroyCam(cam, false)
 				setPedSkin()
 			end,
@@ -120,14 +120,12 @@ function openMenu()
 				end
 			end)
 
-      	end
+		end
 
-      end,
-      function(data, menu)
-        menu.close()
-        setPedSkin()
-      end
-    )
+	end, function(data, menu)
+		menu.close()
+		setPedSkin()
+	end)
 end
 
 function addBlips()
