@@ -1,2 +1,3 @@
-Config        = {}
-Config.Locale = 'sv'
+Config              = {}
+Config.Locale       = 'sv'
+Config.DrawDistance = 10

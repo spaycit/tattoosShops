@@ -40,8 +40,8 @@ Citizen.CreateThread(function()
 			end
 		end
 		
-		if(inMenu) then
-			if(IsControlJustPressed(1, Keys['BACKSPACE'])) then
+		if inMenu then
+			if(IsControlJustPressed(1, Keys['BACKSPACE'])) and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'Tattoos_Categories_menu') then
 				ESX.UI.Menu.CloseAll()
 				FreezeEntityPosition(GetPlayerPed(-1), false)
 				RenderScriptCams(false, false, 0, 1, 0)
@@ -82,9 +82,9 @@ function openMenu()
 		if(data.current.value ~= nil) then
 			elements = {}
 
-			table.insert(elements, {label = Config.TextGoBackIntoMenu, value = nil})
+			table.insert(elements, {label = _U('go_back_to_menu'), value = nil})
 			for i,k in pairs(tattoosList[data.current.value]) do
-				table.insert(elements, {label= _U('tattoo') .. " n°"..i.."	("..k.price.. _U('money_symbol') ..")", value = i, price = k.price})
+				table.insert(elements, {label= _U('tattoo') .. " n°"..i.." - " .. _U('money_amount', k.price), value = i, price = k.price})
       		end
 
       		ESX.UI.Menu.Open(
@@ -107,18 +107,17 @@ function openMenu()
 
 			end,
 			function(data2, menu2)
-			    menu.close()
+			    menu2.close()
 			    RenderScriptCams(false, false, 0, 1, 0)
 				DestroyCam(cam, false)
 				setPedSkin()
 			end,
-			function(data2,menu2)
+			
+			-- when highlighted
+			function(data2, menu2)
 				if(data2.current.value ~= nil) then
 					drawTattoo(data2.current.value, currentValue)
 				end
-			end,
-			function()
-
 			end)
 
       	end
@@ -145,14 +144,19 @@ function addBlips()
 end
 
 function drawMarkers()
-	for _,k in pairs(tattoosShops) do
-		DrawMarker(27,k.x,k.y,k.z-0.9,0,0,0,0,0,0,3.001,3.0001,0.5001,0,155,255,200,0,0,0,0)
+	local playerPed = GetPlayerPed(-1)
+	local coords    = GetEntityCoords(playerPed)
+	
+	for _,shop in pairs(tattoosShops) do
+		if GetDistanceBetweenCoords(coords, shop.x, shop.y, shop.z, true) < Config.DrawDistance then
+			DrawMarker(27, shop.x, shop.y, shop.z-0.9,0,0,0,0,0,0,3.001,3.0001,0.5001,0,155,255,200,0,0,0,0)
+		end
 	end
 end
 
 function isNearTattoosShop()
-	for _,k in pairs(tattoosShops) do
-		local distance = GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), k.x,k.y,k.z, true)
+	for _,shop in pairs(tattoosShops) do
+		local distance = GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), shop.x, shop.y, shop.z, true)
 		if(distance < 3) then
 			return true
 		end
