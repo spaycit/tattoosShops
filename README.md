@@ -1,6 +1,12 @@
-# tattoosShops
+# esx_tattooshop
+Tattoo shop for FXServer built on top of ESX. Heavily modified fork developed by the SCRP community.
 
-To put custom custom tattoos, please see this tutorial : https://forum.fivem.net/t/release-tutorial-add-new-tattoos-and-overlays-example-included/8450 . After, edit the list.lua . First, add in "tattoosCategories" the name of the categorie and then the name of the collection (name of your xml). After, add your tattoos in the "tattoosList" like the others.
+### Installation
+- Install like any other script
+- Import `esx_tattooshop.sql` to your SQL database
+- (Optimal) select langauge in `config.lua`
 
-
-Also, you can re-release this script for ES and other cores. But I ask you to credit me.
+### Requirements
+- ESX (mysql-async aswell)
+- skinchanger
+- esx_skin
