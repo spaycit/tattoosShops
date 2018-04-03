@@ -41,7 +41,7 @@ Citizen.CreateThread(function()
 		end
 		
 		if inMenu then
-			if(IsControlJustPressed(1, Keys['BACKSPACE'])) and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'Tattoos_Categories_menu') then
+			if(IsControlJustPressed(1, Keys['BACKSPACE'])) and ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'Tattoos_menu') then
 				ESX.UI.Menu.CloseAll()
 				FreezeEntityPosition(GetPlayerPed(-1), false)
 				RenderScriptCams(false, false, 0, 1, 0)
