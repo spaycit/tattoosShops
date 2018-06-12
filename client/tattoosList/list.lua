@@ -1,7 +1,5 @@
-
 tattoosList = {
 	["mpbeach_overlays"] = {
-
 		{nameHash = "MP_Bea_M_Head_000", part = "head", addedX = 0.5, addedY=0.4,addedZ=0.7, rotZ = 136.4, price = 500},
 		{nameHash = "MP_Bea_M_Head_001", part = "head", addedX = -0.1, addedY=0.4,addedZ=0.7, rotZ = 195.0, price = 500},
 		{nameHash = "MP_Bea_M_Head_002", part = "head", addedX = -0.1, addedY=-0.5,addedZ=0.7, rotZ = 334.5, price = 500},
@@ -53,7 +51,6 @@ tattoosList = {
 
 
 		{nameHash = "MP_Bea_F_RLeg_000",addedX = -0.5, addedY=-0.2,addedZ=-0.8, rotZ = -51.7, price = 500}
-
 	},
 
 
@@ -143,7 +140,6 @@ tattoosList = {
 		{nameHash = "FM_Hip_M_Tat_048", addedX = -0.1, addedY=0.6,addedZ=-0.1,rotZ = 181.1, price = 500}
 	},
 
-
 	["mpbiker_overlays"] = { --need to check the possitions
 		{nameHash = "MP_MP_Biker_Tat_000_M", addedX = -0.7, addedY=-0.4,addedZ=0.5,rotZ = -55.6, price = 500},
 		{nameHash = "MP_MP_Biker_Tat_001_M", addedX = -0.4, addedY=-0.7,addedZ=0.2,rotZ = -49.7, price = 500},
@@ -194,7 +190,7 @@ tattoosList = {
 		{nameHash = "MP_MP_Biker_Tat_046_M", addedX = -0.5, addedY=-0.3,addedZ=0.5,rotZ = -61.2, price = 500},
 		{nameHash = "MP_MP_Biker_Tat_047_M", addedX = 0.4, addedY=0.2,addedZ=0.5,rotZ = 104.6, price = 500},
 		{nameHash = "MP_MP_Biker_Tat_048_M", addedX = -0.1, addedY=0.6,addedZ=-0.1,rotZ = 181.1, price = 500},
-	        {nameHash = "MP_MP_Biker_Tat_049_M", addedX = -0.4, addedY=-0.7,addedZ=0.2,rotZ = -49.7, price = 500},
+		{nameHash = "MP_MP_Biker_Tat_049_M", addedX = -0.4, addedY=-0.7,addedZ=0.2,rotZ = -49.7, price = 500},
 		{nameHash = "MP_MP_Biker_Tat_050_M", addedX = 0.4, addedY=0.5,addedZ=0.4,rotZ = 129.5, price = 500},
 		{nameHash = "MP_MP_Biker_Tat_051_M", addedX = -0.8, addedY=0.1,addedZ=0.0,rotZ = -71.9, price = 500},
 		{nameHash = "MP_MP_Biker_Tat_052_M", addedX = 0.4, addedY=0.2,addedZ=0.0,rotZ = -182.6, price = 500},
@@ -229,14 +225,14 @@ tattoosList = {
 		{nameHash = "MP_Bea_M_Head_002", addedX = -0.1, addedY=0.3,addedZ=0.6,rotZ = -182.6, price = 500},
 		{nameHash = "MP_Bea_M_Lleg_000", addedX = 0.5, addedY=-0.3,addedZ=0.2,rotZ = 38.9, price = 500},
 		{nameHash = "MP_Bea_M_Rleg_000", addedX = -0.1, addedY=0.8,addedZ=-0.2,rotZ = 156.7, price = 500},
-                {nameHash = "MP_Bea_M_RArm_000", addedX = 0.4, addedY=0.5,addedZ=0.4,rotZ = 129.5, price = 500},
+		{nameHash = "MP_Bea_M_RArm_000", addedX = 0.4, addedY=0.5,addedZ=0.4,rotZ = 129.5, price = 500},
 		{nameHash = "MP_Bea_M_Head_000", addedX = -0.8, addedY=0.1,addedZ=0.0,rotZ = -71.9, price = 500},
 		{nameHash = "MP_Bea_M_LArm_000", addedX = 0.4, addedY=0.2,addedZ=0.0,rotZ = -182.6, price = 500},
 		{nameHash = "MP_Bea_M_LArm_001", addedX = -0.1, addedY=0.3,addedZ=0.6,rotZ = -182.6, price = 500},
 		{nameHash = "MP_Bea_M_Neck_000", addedX = 0.5, addedY=-0.3,addedZ=0.2,rotZ = 38.9, price = 500},
 		{nameHash = "MP_Bea_M_Neck_001", addedX = -0.1, addedY=0.8,addedZ=-0.2,rotZ = 156.7, price = 500},
-                {nameHash = "MP_Bea_M_RArm_001", addedX = -0.1, addedY=0.8,addedZ=-0.2,rotZ = 156.7, price = 500},
-                {nameHash = "MP_Bea_M_Stom_000", addedX = 0.4, addedY=0.5,addedZ=0.4,rotZ = 129.5, price = 500},
+		{nameHash = "MP_Bea_M_RArm_001", addedX = -0.1, addedY=0.8,addedZ=-0.2,rotZ = 156.7, price = 500},
+		{nameHash = "MP_Bea_M_Stom_000", addedX = 0.4, addedY=0.5,addedZ=0.4,rotZ = 129.5, price = 500},
 		{nameHash = "MP_Bea_M_Stom_001", addedX = -0.8, addedY=0.1,addedZ=0.0,rotZ = -71.9, price = 500}
 	},
 
@@ -396,7 +392,7 @@ tattoosList = {
 		{nameHash = "MP_LR_Tat_031_M", addedX = -0.7, addedY=-0.5,addedZ=0.3,rotZ = -63.5, price = 500},
 		{nameHash = "MP_LR_Tat_032_M", addedX = -0.7, addedY=-0.5,addedZ=0.3,rotZ = -63.5, price = 500},
 		{nameHash = "MP_LR_Tat_033_M", addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500}
-	},
+	}
 }
 
 tattoosCategories = { -- more to come
@@ -411,13 +407,4 @@ tattoosCategories = { -- more to come
 	{name = _U('part') .. " 9", value = "mpimportexport_overlays"},
 	{name = _U('part') .. " 10", value = "mplowrider2_overlays"},
 	{name = _U('part') .. " 11", value = "mplowrider_overlays"}
-}
-
-tattoosShops = {
-	{x=1322.645,y=-1651.976,z=52.275},
-	{x=-1153.676,y=-1425.68,z=4.954},
-	{x=322.139,y=180.467,z=103.587},
-	{x=-3170.071,y=1075.059,z=20.829},
-	{x=1864.633,y=3747.738,z=33.032},
-	{x=-293.713,y=6200.04,z=31.487}
 }

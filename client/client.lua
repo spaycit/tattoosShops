@@ -10,10 +10,14 @@ local Keys = {
 	["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
 }
 
-ESX 					= nil
-local currentTattoos 	= {}
-local cam 				= -1
-local inMenu			= false
+ESX						= nil
+local currentTattoos	= {}
+local cam				= -1
+local HasAlreadyEnteredMarker = false
+local LastZone                = nil
+local CurrentAction           = nil
+local CurrentActionMsg        = ''
+local CurrentActionData       = {}
 
 Citizen.CreateThread(function()
 	addBlips()
@@ -21,82 +25,43 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
-
-	while true do
-		Citizen.Wait(10)
-		drawMarkers()
-		if(isNearTattoosShop()) then
-			showNotification(_U('tattoo_shop_nearby'))
-			if(IsControlJustPressed(1, Keys['E'])) then
-				inMenu = not inMenu
-				ESX.UI.Menu.CloseAll()
-				if(inMenu) then
-					FreezeEntityPosition(GetPlayerPed(-1), true)
-					openMenu()
-				else
-					FreezeEntityPosition(GetPlayerPed(-1), false)
-					setPedSkin()
-				end
-			end
-		end
-		
-		if inMenu then
-			if(IsControlJustPressed(1, Keys['BACKSPACE'])) and ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'Tattoos_menu') then
-				ESX.UI.Menu.CloseAll()
-				FreezeEntityPosition(GetPlayerPed(-1), false)
-				RenderScriptCams(false, false, 0, 1, 0)
-				DestroyCam(cam, false)
-				setPedSkin()
-				inMenu = false
-			end
-		elseif(DoesCamExist(cam)) then
-			RenderScriptCams(false, false, 0, 1, 0)
-			DestroyCam(cam, false)
-		end
-	end
-
 end)
 
-function openMenu()
+function OpenShopMenu()
 	local elements = {}
 
 	for _,k in pairs(tattoosCategories) do
 		table.insert(elements, {label= k.name, value = k.value})
 	end
 
-	if(DoesCamExist(cam)) then
+	if DoesCamExist(cam) then
 		RenderScriptCams(false, false, 0, 1, 0)
 		DestroyCam(cam, false)
 	end
 
-	ESX.UI.Menu.Open(
-	'default', GetCurrentResourceName(), 'Tattoos_menu',
-		{
-			title    = _U('tattoos'),
-			align    = 'bottom-right',
-			elements = elements,
-		},
-	function(data, menu)
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'Tattoos_menu',
+	{
+		title    = _U('tattoos'),
+		align    = 'bottom-right',
+		elements = elements,
+	}, function(data, menu)
 		local currentLabel = data.current.label
 		local currentValue = data.current.value
-		if(data.current.value ~= nil) then
+		if data.current.value ~= nil then
 			elements = {}
-
 			table.insert(elements, {label = _U('go_back_to_menu'), value = nil})
 			for i,k in pairs(tattoosList[data.current.value]) do
 				table.insert(elements, {label= _U('tattoo') .. " n°"..i.." - " .. _U('money_amount', k.price), value = i, price = k.price})
 			end
 
-			ESX.UI.Menu.Open(
-				'default', GetCurrentResourceName(), 'Tattoos_Categories_menu',
-				{
-					title    = _U('tattoos') .. ' | '..currentLabel,
-					align    = 'bottom-right',
-					elements = elements,
-				},
-			function(data2, menu2)
+			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'Tattoos_Categories_menu',
+			{
+				title    = _U('tattoos') .. ' | '..currentLabel,
+				align    = 'bottom-right',
+				elements = elements,
+			}, function(data2, menu2)
 				local price = data2.current.price
-				if(data2.current.value ~= nil) then
+				if data2.current.value ~= nil then
 					TriggerServerEvent("esx_tattooshop:save", currentTattoos, price, {collection = currentValue, texture = data2.current.value})
 				else
 					openMenu()
@@ -104,24 +69,17 @@ function openMenu()
 					DestroyCam(cam, false)
 					cleanPlayer()
 				end
-
-			end,
-			function(data2, menu2)
+			end, function(data2, menu2)
 				menu2.close()
 				RenderScriptCams(false, false, 0, 1, 0)
 				DestroyCam(cam, false)
 				setPedSkin()
-			end,
-			
-			-- when highlighted
-			function(data2, menu2)
+			end, function(data2, menu2) -- when highlighted
 				if(data2.current.value ~= nil) then
 					drawTattoo(data2.current.value, currentValue)
 				end
 			end)
-
 		end
-
 	end, function(data, menu)
 		menu.close()
 		setPedSkin()
@@ -129,7 +87,7 @@ function openMenu()
 end
 
 function addBlips()
-	for _,k in pairs(tattoosShops) do
+	for _,k in pairs(Config.Zones) do
 		local blip = AddBlipForCoord(k.x, k.y, k.z)
 		SetBlipSprite(blip, 75)
 		SetBlipColour(blip, 1)
@@ -141,27 +99,72 @@ function addBlips()
 	end
 end
 
-function drawMarkers()
-	local playerPed = GetPlayerPed(-1)
-	local coords    = GetEntityCoords(playerPed)
-	
-	for _,shop in pairs(tattoosShops) do
-		if GetDistanceBetweenCoords(coords, shop.x, shop.y, shop.z, true) < Config.DrawDistance then
-			DrawMarker(27, shop.x, shop.y, shop.z-0.9,0,0,0,0,0,0,3.001,3.0001,0.5001,0,155,255,200,0,0,0,0)
+-- Display markers
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(5)
+		local coords = GetEntityCoords(GetPlayerPed(-1))
+		for k,v in pairs(Config.Zones) do
+			if(Config.Type ~= -1 and GetDistanceBetweenCoords(coords, v.x, v.y, v.z, true) < Config.DrawDistance) then
+				DrawMarker(Config.Type, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, false, false, false)
+			end
 		end
 	end
-end
+  end)
 
-function isNearTattoosShop()
-	for _,shop in pairs(tattoosShops) do
-		local distance = GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), shop.x, shop.y, shop.z, true)
-		if(distance < 3) then
-			return true
+-- Enter / Exit marker events
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(10)
+		local coords      = GetEntityCoords(GetPlayerPed(-1))
+		local isInMarker  = false
+		local currentZone = nil
+
+		for k,v in pairs(Config.Zones) do
+			if(GetDistanceBetweenCoords(coords, v.x, v.y, v.z, true) < Config.Size.x) then
+				isInMarker  = true
+				currentZone = k
+				LastZone    = k
+			end
+		end
+		if isInMarker and not HasAlreadyEnteredMarker then
+			HasAlreadyEnteredMarker = true
+			TriggerEvent('esx_tattooshop:hasEnteredMarker', currentZone)
+		end
+		if not isInMarker and HasAlreadyEnteredMarker then
+			HasAlreadyEnteredMarker = false
+			TriggerEvent('esx_tattooshop:hasExitedMarker', LastZone)
 		end
 	end
-	
-	return false
-end
+end)
+
+AddEventHandler('esx_tattooshop:hasEnteredMarker', function(zone)
+	CurrentAction     = 'tattoo_shop'
+	CurrentActionMsg  = _U('tattoo_shop_nearby')
+	CurrentActionData = {zone = zone}
+end)
+
+AddEventHandler('esx_tattooshop:hasExitedMarker', function(zone)
+	CurrentAction = nil
+	ESX.UI.Menu.CloseAll()
+end)
+
+-- Key Controls
+Citizen.CreateThread(function()
+	while true do
+	Citizen.Wait(10)
+		if CurrentAction ~= nil then
+			showNotification(CurrentActionMsg)
+
+			if IsControlJustReleased(0, Keys['E']) then
+				if CurrentAction == 'tattoo_shop' then
+					OpenShopMenu()
+				end
+				CurrentAction = nil
+			end
+		end
+	end
+end)
 
 function setPedSkin()
 	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
@@ -236,7 +239,7 @@ end)
 
 local firstLoad = false
 AddEventHandler("skinchanger:loadSkin", function(skin)
-	if(not firstLoad) then
+	if not firstLoad then
 		Citizen.CreateThread(function()
 
 			while not (GetEntityModel(GetPlayerPed(-1)) == GetHashKey("mp_m_freemode_01") or GetEntityModel(GetPlayerPed(-1)) == GetHashKey("mp_f_freemode_01")) do
