@@ -10,7 +10,7 @@ client_scripts {
 	'locales/sv.lua',
 	'config.lua',
 	'client/tattoosList/list.lua',
-	'client/client.lua'
+	'client/main.lua'
 }
 
 server_scripts {
@@ -19,5 +19,7 @@ server_scripts {
 	'locales/en.lua',
 	'locales/sv.lua',
 	'config.lua',
-	'server/server.lua'
+	'server/main.lua'
 }
+
+dependency 'es_extended'
