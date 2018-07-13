@@ -29,7 +29,6 @@ ESX.RegisterServerCallback('esx_tattooshop:purchaseTattoo', function(source, cb,
 			['@identifier'] = xPlayer.identifier
 		})
 
-		TriggerClientEvent('esx_tattooshop:buySuccess', source, tattoo)
 		TriggerClientEvent('esx:showNotification', source, _U('bought_tattoo', price))
 		cb(true)
 	else
