@@ -30,7 +30,16 @@ Citizen.CreateThread(function()
 	Citizen.Wait(10000) -- wait for player skin to load, there's probably a trigger you could use instead
 	ESX.TriggerServerCallback('esx_tattooshop:requestPlayerTattoos', function(tattooList)
 		for _,k in pairs(tattooList) do
-			ApplyPedOverlay(GetPlayerPed(-1), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+			ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+		end
+		currentTattoos = tattooList
+	end)
+end)
+
+AddEventHandler('skinchanger:modelLoaded', function()
+	ESX.TriggerServerCallback('esx_tattooshop:requestPlayerTattoos', function(tattooList)
+		for _,k in pairs(tattooList) do
+			ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
 		end
 		currentTattoos = tattooList
 	end)
@@ -119,7 +128,7 @@ end
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(5)
-		local coords = GetEntityCoords(GetPlayerPed(-1))
+		local coords = GetEntityCoords(PlayerPedId())
 		for k,v in pairs(Config.Zones) do
 			if(Config.Type ~= -1 and GetDistanceBetweenCoords(coords, v.x, v.y, v.z, true) < Config.DrawDistance) then
 				DrawMarker(Config.Type, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, false, false, false)
@@ -132,7 +141,7 @@ Citizen.CreateThread(function()
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(10)
-		local coords      = GetEntityCoords(GetPlayerPed(-1))
+		local coords      = GetEntityCoords(PlayerPedId())
 		local isInMarker  = false
 		local currentZone = nil
 
@@ -190,16 +199,16 @@ function setPedSkin()
 	Citizen.Wait(1000)
 
 	for _,k in pairs(currentTattoos) do
-		ApplyPedOverlay(GetPlayerPed(-1), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+		ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
 	end
 end
 
 function drawTattoo(current, collection)
-	SetEntityHeading(GetPlayerPed(-1), 297.7296)
+	SetEntityHeading(PlayerPedId(), 297.7296)
 
-	ClearPedDecorations(GetPlayerPed(-1))
+	ClearPedDecorations(PlayerPedId())
 	for _,k in pairs(currentTattoos) do
-		ApplyPedOverlay(GetPlayerPed(-1), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+		ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
 	end
 
 	TriggerEvent('skinchanger:getSkin', function(skin)
@@ -228,28 +237,28 @@ function drawTattoo(current, collection)
 		end
 	end)
 
-	ApplyPedOverlay(GetPlayerPed(-1), GetHashKey(collection), GetHashKey(Config.TattooList[collection][current].nameHash))
+	ApplyPedOverlay(PlayerPedId(), GetHashKey(collection), GetHashKey(Config.TattooList[collection][current].nameHash))
 
 	if(not DoesCamExist(cam)) then
 		cam = CreateCam('DEFAULT_SCRIPTED_CAMERA', true)
 		
-		SetCamCoord(cam, GetEntityCoords(GetPlayerPed(-1)))
+		SetCamCoord(cam, GetEntityCoords(PlayerPedId()))
 		SetCamRot(cam, 0.0, 0.0, 0.0)
 		SetCamActive(cam, true)
 		RenderScriptCams(true, false, 0, true, true)
-		SetCamCoord(cam, GetEntityCoords(GetPlayerPed(-1)))
+		SetCamCoord(cam, GetEntityCoords(PlayerPedId()))
 	end
 
-	local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1)))
+	local x,y,z = table.unpack(GetEntityCoords(PlayerPedId()))
 
 	SetCamCoord(cam, x+Config.TattooList[collection][current].addedX, y+Config.TattooList[collection][current].addedY, z+Config.TattooList[collection][current].addedZ)
 	SetCamRot(cam, 0.0, 0.0, Config.TattooList[collection][current].rotZ)
 end
 
 function cleanPlayer()
-	ClearPedDecorations(GetPlayerPed(-1))
+	ClearPedDecorations(PlayerPedId())
 	for _,k in pairs(currentTattoos) do
-		ApplyPedOverlay(GetPlayerPed(-1), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+		ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
 	end
 end
 
