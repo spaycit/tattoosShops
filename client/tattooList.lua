@@ -296,14 +296,14 @@ Config.TattooList = {
 }
 
 Config.TattooCategories = {
-	{name = _U('part') .. " 1", value = "mpbusiness_overlays"},
-	{name = _U('part') .. " 2", value = "mphipster_overlays"},
-	{name = _U('part') .. " 3", value = "mpbiker_overlays"},
-	{name = _U('part') .. " 4", value = "mpairraces_overlays"},
-	{name = _U('part') .. " 5", value = "mpbeach_overlays"},
-	{name = _U('part') .. " 6", value = "mpchristmas2_overlays"},
-	{name = _U('part') .. " 7", value = "mpgunrunning_overlays"},
-	{name = _U('part') .. " 8", value = "mpimportexport_overlays"},
-	{name = _U('part') .. " 9", value = "mplowrider2_overlays"},
-	{name = _U('part') .. " 10", value = "mplowrider_overlays"}
+	{name = _U('part', 1), value = "mpbusiness_overlays"},
+	{name = _U('part', 2), value = "mphipster_overlays"},
+	{name = _U('part', 3), value = "mpbiker_overlays"},
+	{name = _U('part', 4), value = "mpairraces_overlays"},
+	{name = _U('part', 5), value = "mpbeach_overlays"},
+	{name = _U('part', 6), value = "mpchristmas2_overlays"},
+	{name = _U('part', 7), value = "mpgunrunning_overlays"},
+	{name = _U('part', 8), value = "mpimportexport_overlays"},
+	{name = _U('part', 9), value = "mplowrider2_overlays"},
+	{name = _U('part', 10), value = "mplowrider_overlays"}
 }

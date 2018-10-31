@@ -1,1 +1,5 @@
-ALTER TABLE `users` ADD COLUMN `tattoos` VARCHAR(255) DEFAULT '{}';
+USE `essentialmode`;
+
+ALTER TABLE `users`
+	ADD COLUMN `tattoos` LONGTEXT NULL
+;
