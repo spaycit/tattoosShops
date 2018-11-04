@@ -9,14 +9,14 @@ ESX.RegisterServerCallback('esx_tattooshop:requestPlayerTattoos', function(sourc
 		MySQL.Async.fetchAll('SELECT tattoos FROM users WHERE identifier = @identifier', {
 			['@identifier'] = xPlayer.identifier
 		}, function(result)
-			if result[1] ~= nil and result[1] ~= "" then
+			if result[1].tattoos then
 				cb(json.decode(result[1].tattoos))
 			else
-				cb({})
+				cb()
 			end
 		end)
 	else
-		cb({})
+		cb()
 	end
 end)
 

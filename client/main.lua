@@ -28,10 +28,13 @@ end)
 
 AddEventHandler('skinchanger:modelLoaded', function()
 	ESX.TriggerServerCallback('esx_tattooshop:requestPlayerTattoos', function(tattooList)
-		for _,k in pairs(tattooList) do
-			ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+		if tattooList then
+			for _,k in pairs(tattooList) do
+				ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+			end
+
+			currentTattoos = tattooList
 		end
-		currentTattoos = tattooList
 	end)
 end)
 
