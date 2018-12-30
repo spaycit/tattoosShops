@@ -27,8 +27,7 @@ ESX.RegisterServerCallback('esx_tattooshop:purchaseTattoo', function(source, cb,
 		xPlayer.removeMoney(price)
 		table.insert(tattooList, tattoo)
 
-		MySQL.Async.execute('UPDATE users SET tattoos = @tattoos WHERE identifier = @identifier',
-		{
+		MySQL.Async.execute('UPDATE users SET tattoos = @tattoos WHERE identifier = @identifier', {
 			['@tattoos'] = json.encode(tattooList),
 			['@identifier'] = xPlayer.identifier
 		})
