@@ -14,7 +14,6 @@ ESX								= nil
 local currentTattoos			= {}
 local cam						= -1
 local HasAlreadyEnteredMarker	= false
-local LastZone					= nil
 local CurrentAction				= nil
 local CurrentActionMsg			= ''
 local CurrentActionData			= {}
@@ -145,15 +144,15 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(100)
 
-		local coords      = GetEntityCoords(PlayerPedId())
-		local isInMarker  = false
-		local currentZone = nil
+		local coords = GetEntityCoords(PlayerPedId())
+		local isInMarker = false
+		local currentZone, LastZone
 
 		for k,v in pairs(Config.Zones) do
 			if GetDistanceBetweenCoords(coords, v, true) < Config.Size.x then
 				isInMarker  = true
-				currentZone = k
-				LastZone    = k
+				currentZone = 'TattooShop'
+				LastZone    = 'TattooShop'
 			end
 		end
 
@@ -170,9 +169,11 @@ Citizen.CreateThread(function()
 end)
 
 AddEventHandler('esx_tattooshop:hasEnteredMarker', function(zone)
-	CurrentAction     = 'tattoo_shop'
-	CurrentActionMsg  = _U('tattoo_shop_nearby')
-	CurrentActionData = {zone = zone}
+	if zone == 'TattooShop' then
+		CurrentAction     = 'tattoo_shop'
+		CurrentActionMsg  = _U('tattoo_shop_prompt')
+		CurrentActionData = {zone = zone}
+	end
 end)
 
 AddEventHandler('esx_tattooshop:hasExitedMarker', function(zone)
