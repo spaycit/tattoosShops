@@ -107,8 +107,8 @@ function OpenShopMenu()
 end
 
 Citizen.CreateThread(function()
-	for _,k in pairs(Config.Zones) do
-		local blip = AddBlipForCoord(k.x, k.y, k.z)
+	for k,v in pairs(Config.Zones) do
+		local blip = AddBlipForCoord(v)
 		SetBlipSprite(blip, 75)
 		SetBlipColour(blip, 1)
 		SetBlipAsShortRange(blip, true)
@@ -127,8 +127,8 @@ Citizen.CreateThread(function()
 
 		for k,v in pairs(Config.Zones) do
 
-			if (Config.Type ~= -1 and GetDistanceBetweenCoords(coords, v.x, v.y, v.z, true) < Config.DrawDistance) then
-				DrawMarker(Config.Type, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, false, false, false)
+			if (Config.Type ~= -1 and GetDistanceBetweenCoords(coords, v, true) < Config.DrawDistance) then
+				DrawMarker(Config.Type, v, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, false, false, false)
 				canSleep = false
 			end
 
@@ -150,7 +150,7 @@ Citizen.CreateThread(function()
 		local currentZone = nil
 
 		for k,v in pairs(Config.Zones) do
-			if GetDistanceBetweenCoords(coords, v.x, v.y, v.z, true) < Config.Size.x then
+			if GetDistanceBetweenCoords(coords, v, true) < Config.Size.x then
 				isInMarker  = true
 				currentZone = k
 				LastZone    = k
