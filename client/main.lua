@@ -1,22 +1,6 @@
-local Keys = {
-	["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57,
-	["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177,
-	["TAB"] = 37, ["Q"] = 44, ["W"] = 32, ["E"] = 38, ["R"] = 45, ["T"] = 245, ["Y"] = 246, ["U"] = 303, ["P"] = 199, ["["] = 39, ["]"] = 40, ["ENTER"] = 18,
-	["CAPS"] = 137, ["A"] = 34, ["S"] = 8, ["D"] = 9, ["F"] = 23, ["G"] = 47, ["H"] = 74, ["K"] = 311, ["L"] = 182,
-	["LEFTSHIFT"] = 21, ["Z"] = 20, ["X"] = 73, ["C"] = 26, ["V"] = 0, ["B"] = 29, ["N"] = 249, ["M"] = 244, [","] = 82, ["."] = 81,
-	["LEFTCTRL"] = 36, ["LEFTALT"] = 19, ["SPACE"] = 22, ["RIGHTCTRL"] = 70,
-	["HOME"] = 213, ["PAGEUP"] = 10, ["PAGEDOWN"] = 11, ["DELETE"] = 178,
-	["LEFT"] = 174, ["RIGHT"] = 175, ["TOP"] = 27, ["DOWN"] = 173,
-	["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
-}
-
-ESX								= nil
-local currentTattoos			= {}
-local cam						= -1
-local HasAlreadyEnteredMarker	= false
-local CurrentAction				= nil
-local CurrentActionMsg			= ''
-local CurrentActionData			= {}
+local currentTattoos, cam, CurrentActionData = {}, -1, {}
+local HasAlreadyEnteredMarker, CurrentAction, CurrentActionMsg
+ESX = nil
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -28,8 +12,8 @@ end)
 AddEventHandler('skinchanger:modelLoaded', function()
 	ESX.TriggerServerCallback('esx_tattooshop:requestPlayerTattoos', function(tattooList)
 		if tattooList then
-			for _,k in pairs(tattooList) do
-				ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+			for k,v in pairs(tattooList) do
+				ApplyPedOverlay(PlayerPedId(), GetHashKey(v.collection), GetHashKey(Config.TattooList[v.collection][v.texture].nameHash))
 			end
 
 			currentTattoos = tattooList
@@ -40,8 +24,8 @@ end)
 function OpenShopMenu()
 	local elements = {}
 
-	for _,k in pairs(Config.TattooCategories) do
-		table.insert(elements, {label= k.name, value = k.value})
+	for k,v in pairs(Config.TattooCategories) do
+		table.insert(elements, {label= v.name, value = v.value})
 	end
 
 	if DoesCamExist(cam) then
@@ -56,14 +40,14 @@ function OpenShopMenu()
 	}, function(data, menu)
 		local currentLabel, currentValue = data.current.label, data.current.value
 
-		if data.current.value ~= nil then
-			elements = { {label = _U('go_back_to_menu'), value = nil} }
+		if data.current.value then
+			elements = {{label = _U('go_back_to_menu'), value = nil}}
 
-			for i,k in pairs(Config.TattooList[data.current.value]) do
+			for k,v in pairs(Config.TattooList[data.current.value]) do
 				table.insert(elements, {
-					label = _U('tattoo_item', i, _U('money_amount', ESX.Math.GroupDigits(k.price))),
-					value = i,
-					price = k.price
+					label = _U('tattoo_item', k, _U('money_amount', ESX.Math.GroupDigits(v.price))),
+					value = k,
+					price = v.price
 				})
 			end
 
@@ -122,22 +106,20 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
-		local coords, canSleep = GetEntityCoords(PlayerPedId()), true
+		local coords, letSleep = GetEntityCoords(PlayerPedId()), true
 
 		for k,v in pairs(Config.Zones) do
-
 			if (Config.Type ~= -1 and GetDistanceBetweenCoords(coords, v, true) < Config.DrawDistance) then
 				DrawMarker(Config.Type, v, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, false, false, false)
-				canSleep = false
+				letSleep = false
 			end
-
 		end
 
-		if canSleep then
+		if letSleep then
 			Citizen.Wait(500)
 		end
 	end
-  end)
+end)
 
 -- Enter / Exit marker events
 Citizen.CreateThread(function()
@@ -186,10 +168,10 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 
-		if CurrentAction ~= nil then
+		if CurrentAction then
 			ESX.ShowHelpNotification(CurrentActionMsg)
 
-			if IsControlJustReleased(0, Keys['E']) then
+			if IsControlJustReleased(0, 38) then
 				if CurrentAction == 'tattoo_shop' then
 					OpenShopMenu()
 				end
@@ -208,8 +190,8 @@ function setPedSkin()
 
 	Citizen.Wait(1000)
 
-	for _,k in pairs(currentTattoos) do
-		ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+	for k,v in pairs(currentTattoos) do
+		ApplyPedOverlay(PlayerPedId(), GetHashKey(v.collection), GetHashKey(Config.TattooList[v.collection][v.texture].nameHash))
 	end
 end
 
@@ -217,8 +199,8 @@ function drawTattoo(current, collection)
 	SetEntityHeading(PlayerPedId(), 297.7296)
 	ClearPedDecorations(PlayerPedId())
 
-	for _,k in pairs(currentTattoos) do
-		ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+	for k,v in pairs(currentTattoos) do
+		ApplyPedOverlay(PlayerPedId(), GetHashKey(v.collection), GetHashKey(Config.TattooList[v.collection][v.texture].nameHash))
 	end
 
 	TriggerEvent('skinchanger:getSkin', function(skin)
@@ -268,7 +250,7 @@ end
 function cleanPlayer()
 	ClearPedDecorations(PlayerPedId())
 
-	for _,k in pairs(currentTattoos) do
-		ApplyPedOverlay(PlayerPedId(), GetHashKey(k.collection), GetHashKey(Config.TattooList[k.collection][k.texture].nameHash))
+	for k,v in pairs(currentTattoos) do
+		ApplyPedOverlay(PlayerPedId(), GetHashKey(v.collection), GetHashKey(Config.TattooList[v.collection][v.texture].nameHash))
 	end
 end
