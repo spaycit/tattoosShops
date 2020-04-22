@@ -312,7 +312,7 @@ Config.TattooList = {
 		{nameHash = 'MP_LR_Tat_026_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Royal Takeover'},
 		{nameHash = 'MP_LR_Tat_027_M', addedX = -0.5, addedY=0.9,addedZ=0.4,rotZ = 551.7, price = 500, name = 'Los Santos Life'},
 		{nameHash = 'MP_LR_Tat_033_M', addedX = 0.1, addedY=1.2,addedZ=0.1,rotZ = 511.9, price = 500, name = 'City Sorrow'}
-	}
+	},
 
 
     mpluxe_overlays = {
@@ -331,7 +331,7 @@ Config.TattooList = {
 		{nameHash = 'MP_LUXE_TAT_020_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Archangel & Mary'},
 		{nameHash = 'MP_LUXE_TAT_021_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Gabriel'},
 		{nameHash = 'MP_LUXE_TAT_024_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Feather Mural'}
-	}
+	},
 
 
     mpluxe2_overlays = {
@@ -352,7 +352,7 @@ Config.TattooList = {
     	{nameHash = 'MP_LUXE_TAT_029_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Geometric Design'},
     	{nameHash = 'MP_LUXE_TAT_030_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Geometric Design2'},
     	{nameHash = 'MP_LUXE_TAT_031_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Geometric Design3'}
-    }  
+    },  
 
 
     multiplayer_overlays = {
@@ -423,7 +423,7 @@ Config.TattooList = {
         {nameHash = 'FM_Tat_M_044', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Stone Cross'},
         {nameHash = 'FM_Tat_M_044', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Skulls and Rose'},
         {nameHash = 'FM_Tat_M_044', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Lion'}
-    }
+    },
 
 
 
@@ -461,7 +461,7 @@ Config.TattooList = {
     	{nameHash = 'MP_Vinewood_Tat_0030_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'The Royals'},
     	{nameHash = 'MP_Vinewood_Tat_0031_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Gambling Royalty'},
     	{nameHash = 'MP_Vinewood_Tat_0032_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Play Your Ace'}
-    } 
+    },
 
 
     mpstunt_overlays = {
@@ -514,7 +514,7 @@ Config.TattooList = {
     	{nameHash = 'MP_MP_Stunt_tat_0046_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Brake Knife'},
     	{nameHash = 'MP_MP_Stunt_tat_0047_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Racing Doll'},
     	{nameHash = 'MP_MP_Stunt_tat_0048_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Seductive Mechanic'}
-    }
+    },   
 
 
     mpsmuggler_overlays = {
@@ -544,9 +544,7 @@ Config.TattooList = {
     	{nameHash = 'MP_Smuggler_Tattoo_0023_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Stylized Kraken'},
     	{nameHash = 'MP_Smuggler_Tattoo_0023_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Pirate Captain'},
     	{nameHash = 'MP_Smuggler_Tattoo_002_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Claimed By The Beast'}
-
-
-    }
+    },   
 
 
     mpheist3_overlays = {
@@ -594,12 +592,46 @@ Config.TattooList = {
     	{nameHash = 'mpHeist3_Tat_0041_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Mighty Thog'},
     	{nameHash = 'mpHeist3_Tat_0042_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Hearts'},
     	{nameHash = 'mpHeist3_Tat_0043_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Diamonds'}
-    }
+    },
 
 
     mpchristmas2018_overlays = {
     	{nameHash = 'MP_Christmas2018_Tat_000_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = '???'}
-    }
+	}
+
+
+    mpchristmas2017_overlays = {
+    	{nameHash = 'MP_Christmas2017_Tattoo_000_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Thor & Goblin'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_001_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Viking Warrior'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_002_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Kabuto'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_003_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Native Warrior'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_004_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Tiger & Mask'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_005_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Ghost Dragon'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_006_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Medusa'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_007_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Spartan Combat'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_008_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Spartan Warrior'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_009_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Norse Rune'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0010_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Spartan Shield'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0011_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Weathered Skull'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0012_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Tiger Headdress'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0013_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Katana'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0014_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Celtic Band'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0015_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Samurai Combat'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0016_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Odin & Raven'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0017_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Feather Sleeve'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0018_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Muscle Tear'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0019_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Strike Force'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0020_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Medusas Gaze'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0021_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Spartan & Lion'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0022_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Spartan & Horse'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0023_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Samurai Tallship'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0024_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Dragon Slayer'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0025_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Winged Serpent'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0026_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Spartan Skull'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0027_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Molon Labe'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0028_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Spartan Mural'},
+    	{nameHash = 'MP_Christmas2017_Tattoo_0029_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Cerberus'}
+    },
 
 
 
@@ -622,4 +654,5 @@ Config.TattooCategories = {
 	{name = _U('part', 16), value = 'mpsmuggler_overlays'}
 	{name = _U('part', 17), value = 'mpheist3_overlays'}
 	{name = _U('part', 18), value = 'mpchristmas2018_overlays'}
+	{name = _U('part', 19), value = 'mpchristmas2017_overlays'}
 }
