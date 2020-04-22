@@ -647,7 +647,7 @@ Config.TattooCategories = {
 	{name = _U('lowrider2'), value = 'mplowrider2_overlays'},
 	{name = _U('luxe'), value = 'mpluxe_overlays'},
 	{name = _U('luxe2'), value = 'mpluxe2_overlays'},
-	{name = _U('ultiplayer'), value = 'multiplayer_overlays'},
+	{name = _U('multiplayer'), value = 'multiplayer_overlays'},
 	{name = _U('vinewood'), value = 'mpvinewood_overlays'},
 	{name = _U('stunt'), value = 'mpstunt_overlays'},
 	{name = _U('smuggler'), value = 'mpsmuggler_overlays'},
