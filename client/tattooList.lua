@@ -636,23 +636,23 @@ Config.TattooList = {
 
 
 Config.TattooCategories = {
-	{name = _U('part', 1), value = 'mpbusiness_overlays'},
-	{name = _U('part', 2), value = 'mphipster_overlays'},
-	{name = _U('part', 3), value = 'mpbiker_overlays'},
-	{name = _U('part', 4), value = 'mpairraces_overlays'},
-	{name = _U('part', 5), value = 'mpbeach_overlays'},
-	{name = _U('part', 6), value = 'mpchristmas2_overlays'},
-	{name = _U('part', 7), value = 'mpgunrunning_overlays'},
-	{name = _U('part', 8), value = 'mpimportexport_overlays'},
-	{name = _U('part', 9), value = 'mplowrider2_overlays'},
-	{name = _U('part', 10), value = 'mplowrider_overlays'}
-	{name = _U('part', 11), value = 'mpluxe_overlays'}
-	{name = _U('part', 12), value = 'mpluxe2_overlays'}
-	{name = _U('part', 13), value = 'multiplayer_overlays'}
-	{name = _U('part', 14), value = 'mpvinewood_overlays'}
-	{name = _U('part', 15), value = 'mpstunt_overlays'}
-	{name = _U('part', 16), value = 'mpsmuggler_overlays'}
-	{name = _U('part', 17), value = 'mpheist3_overlays'}
-	{name = _U('part', 18), value = 'mpchristmas2018_overlays'}
-	{name = _U('part', 19), value = 'mpchristmas2017_overlays'}
+	{name = _U('business'), value = 'mpbusiness_overlays'},
+	{name = _U('hipster'), value = 'mphipster_overlays'},
+	{name = _U('biker'), value = 'mpbiker_overlays'},
+	{name = _U('airraces'), value = 'mpairraces_overlays'},
+	{name = _U('beach'), value = 'mpbeach_overlays'},
+	{name = _U('christmas2'), value = 'mpchristmas2_overlays'},
+	{name = _U('gunrunning'), value = 'mpgunrunning_overlays'},
+	{name = _U('importexport'), value = 'mpimportexport_overlays'},
+	{name = _U('lowrider2'), value = 'mplowrider2_overlays'},
+	{name = _U('lowride'), value = 'mplowrider_overlays'}
+	{name = _U('luxe'), value = 'mpluxe_overlays'}
+	{name = _U('luxe2'), value = 'mpluxe2_overlays'}
+	{name = _U('ultiplayer'), value = 'multiplayer_overlays'}
+	{name = _U('vinewood'), value = 'mpvinewood_overlays'}
+	{name = _U('stunt'), value = 'mpstunt_overlays'}
+	{name = _U('smuggler'), value = 'mpsmuggler_overlays'}
+	{name = _U('heist3'), value = 'mpheist3_overlays'}
+	{name = _U('christmas2018'), value = 'mpchristmas2018_overlays'}
+	{name = _U('christmas2017'), value = 'mpchristmas2017_overlays'}
 }
