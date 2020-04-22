@@ -256,8 +256,7 @@ Config.TattooList = {
 		{nameHash = 'MP_Gunrunning_Tattoo_027_M', addedX = -0.5, addedY=0.9,addedZ=0.4,rotZ = 551.7, price = 500, name = 'Serpent Revolver'},
 		{nameHash = 'MP_Gunrunning_Tattoo_028_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Micro SMG Chain'},
 		{nameHash = 'MP_Gunrunning_Tattoo_029_M', addedX = 0.6, addedY=0.3,addedZ=0.3,rotZ = 116.6, price = 500, name = 'Win Some Lose Some'},
-		{nameHash = 'MP_Gunrunning_Tattoo_030_M', addedX = 0.5, addedY=-0.4,addedZ=-0.5,rotZ = 37.8, price = 500, name = 'Pistol Ace'
-		}
+		{nameHash = 'MP_Gunrunning_Tattoo_030_M', addedX = 0.5, addedY=-0.4,addedZ=-0.5,rotZ = 37.8, price = 500, name = 'Pistol Ace'}
 	},
 
 	mpimportexport_overlays = {
@@ -597,7 +596,7 @@ Config.TattooList = {
 
     mpchristmas2018_overlays = {
     	{nameHash = 'MP_Christmas2018_Tat_000_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = '???'}
-	}
+	},
 
 
     mpchristmas2017_overlays = {
@@ -631,9 +630,9 @@ Config.TattooList = {
     	{nameHash = 'MP_Christmas2017_Tattoo_0027_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Molon Labe'},
     	{nameHash = 'MP_Christmas2017_Tattoo_0028_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Spartan Mural'},
     	{nameHash = 'MP_Christmas2017_Tattoo_0029_M', addedX = 0.6, addedY=0.3,addedZ=0.4,rotZ = 116.6, price = 500, name = 'Cerberus'}
-    },
+    }
 
-
+}
 
 Config.TattooCategories = {
 	{name = _U('business'), value = 'mpbusiness_overlays'},
