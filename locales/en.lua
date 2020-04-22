@@ -9,7 +9,7 @@ Locales['en'] = {
   ['bought_tattoo']      = 'you bought an ~y~tattoo~s~ for ~r~$%s~s~',
   ['not_enough_money']   = 'you don\'t have ~r~enough money~s~ for that tattoo! You are missing ~r~$%s~s~'
   
-  ['business']  = 'Negocios',
+        ['business']  = 'Negocios',
 	['hipster']  = 'Hipster',
 	['biker']  = 'Motoqueiro',
 	['airraces']  = 'Corridas aereas',
