@@ -7,7 +7,7 @@ Locales['sv'] = {
   ['tattoos']            = 'tatueringar',
   ['tattoo_shop']        = 'tatueringsaffär',
   ['bought_tattoo']      = 'du köpte ~y~en tatuering~s~ för ~r~%s SEK~s~',
-  ['not_enough_money']   = 'du har ~r~inte råd~s~ för denna ~y~tatuering~s~! Du saknar ~r~%s SEK~s~'
+  ['not_enough_money']   = 'du har ~r~inte råd~s~ för denna ~y~tatuering~s~! Du saknar ~r~%s SEK~s~',
   
   ['business']  = 'Negocios',
 	['hipster']  = 'Hipster',
