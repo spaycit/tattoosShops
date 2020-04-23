@@ -45,7 +45,7 @@ function OpenShopMenu()
 
 			for k,v in pairs(Config.TattooList[data.current.value]) do
 				table.insert(elements, {
-					label = ('%s - %s EUR'):format(v.name, ESX.Math.GroupDigits(v.price)),
+					label = ('%s - <span style="color:green;">%s EUR</span>'):format(v.name, ESX.Math.GroupDigits(v.price)),
 					value = k,
 					price = v.price
 				})
