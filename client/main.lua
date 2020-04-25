@@ -86,9 +86,9 @@ function OpenShopMenu()
 			end)
 		end
 	end, function(data, menu)
-local playerPed = PlayerPedId()
+                local playerPed = PlayerPedId()
 		menu.close()
-FreezeEntityPosition(playerPed, false)
+                FreezeEntityPosition(playerPed, false)
 		setPedSkin()
 	end)
 end
@@ -193,7 +193,7 @@ function setPedSkin()
 local playerPed = PlayerPedId()
                         
                 ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-        TriggerEvent('skinchanger:loadSkin', skin)
+                TriggerEvent('skinchanger:loadSkin', skin)
     end)
 
     Citizen.Wait(1000)
