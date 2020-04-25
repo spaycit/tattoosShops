@@ -61,7 +61,7 @@ start esx_tattooshop
 ### Arms
 Inside Arms - ```addedX = 0.4, addedY=0.2,addedZ=0.0,rotZ = 115.5,```
 
-###Right Arm:
+###Right Arm
 
 -Arm  Back Top Right - ```addedX = -0.2, addedY=-1.1,addedZ=0.1,rotZ = -25.5,```
 
@@ -75,7 +75,7 @@ Inside Arms - ```addedX = 0.4, addedY=0.2,addedZ=0.0,rotZ = 115.5,```
 
 -Arm  Front Right -  ```addedX = 0.8, addedY=-0.2,addedZ=0.1,rotZ = 70.0,```
 
-###Left Arm:
+###Left Arm
 
 -Arm  Back Top Left - ```addedX = 0.7, addedY=-0.5,addedZ=0.3,rotZ = -63.5,```
 
